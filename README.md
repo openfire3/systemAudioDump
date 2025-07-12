@@ -1,5 +1,7 @@
 # SystemAudioDump
 
+**⚠️ IMPORTANT: This tool captures SYSTEM AUDIO only (apps, browser, media players, etc.) and does NOT record from external sources like microphones, external audio interfaces, or USB devices.**
+
 A macOS command-line tool that captures system audio and outputs it as raw PCM data to stdout.
 
 ## Features
