@@ -1,0 +1,25 @@
+name: Build SystemAudioDump for Intel macOS
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: macos-12
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build SystemAudioDump (x86_64)
+        run: |
+          swift build -c release
+          mkdir output
+          cp .build/release/SystemAudioDump output/SystemAudioDump
+          cd output
+          zip SystemAudioDump_x86_64.zip SystemAudioDump
+
+      - name: Upload build as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: SystemAudioDump_x86_64
+          path: output/SystemAudioDump_x86_64.zip
