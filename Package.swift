@@ -4,7 +4,7 @@ import PackageDescription
 let package = Package(
   name: "SystemAudioDump",
   platforms: [
-    .macOS(.v15)
+    .macOS(.v13)
   ],
   dependencies: [
     // no external deps
