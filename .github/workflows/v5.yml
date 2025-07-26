@@ -1,4 +1,4 @@
-name: Build SystemAudioDump macOS x64
+name: Build v5 SystemAudioDump macOS x64
 
 on:
   workflow_dispatch:
