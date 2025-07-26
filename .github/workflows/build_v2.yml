@@ -1,0 +1,25 @@
+name: Build SystemAudioDump macOS x64 v2
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-13
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Build SystemAudioDump
+        run: |
+          swift build -c release
+          mkdir -p output
+          cp .build/release/SystemAudioDump output/
+          zip -j output/SystemAudioDump_x86_64.zip output/SystemAudioDump
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: SystemAudioDump_x86_64
+          path: output/SystemAudioDump_x86_64.zip
